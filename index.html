@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Shavell</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DrivingInJA</title>
+  <meta name="description" content="DrivingInJA — Jamaican driving practice hub." />
+  <style>
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: inherit; }
+    .wrap { min-height:100vh; padding:24px;
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(255,215,0,0.18), transparent 60%),
+                  radial-gradient(800px 500px at 90% 30%, rgba(0,180,90,0.18), transparent 60%),
+                  #0b1020;
+      color:#fff; }
+    .container { max-width: 980px; margin: 0 auto; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .logo { font-weight:800; letter-spacing:.2px; }
+    .links { display:flex; gap:12px; flex-wrap:wrap; }
+    .link { text-decoration:none; padding:10px 12px; border-radius: 12px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+    .link:hover { background: rgba(255,255,255,0.14); }
+    .card { margin-top:18px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14); border-radius: 22px;
+      padding: 28px; box-shadow: 0 12px 36px rgba(0,0,0,0.4); }
+    h1 { margin: 0 0 10px; font-size: 44px; line-height: 1.1; }
+    p { margin: 0 0 16px; color: rgba(255,255,255,0.82); font-size: 16px; line-height: 1.65; }
+    .grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+    .tile { padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10); }
+    .tile b { display:block; margin-bottom: 6px; font-size: 15px; }
+    .footer { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.65); }
+    @media (max-width: 760px) { h1 { font-size: 34px; } .grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <h1>Hello, I’m Shavell</h1>
-  <p>Site coming soon.</p>
+  <main class="wrap">
+    <div class="container">
+      <header class="nav">
+        <div class="logo">DrivingInJA 🇯🇲</div>
+        <nav class="links">
+          <a class="link" href="road-signs.html">Road Signs</a>
+          <a class="link" href="quizzes.html">Quizzes</a>
+          <a class="link" href="about.html">About</a>
+        </nav>
+      </header>
+
+      <section class="card">
+        <h1>Pass the test. Drive with confidence.</h1>
+        <p>
+          DrivingInJA is a Jamaican driving practice hub—road signs, quizzes, and clear explanations that help you learn fast
+          (and actually remember).
+        </p>
+
+        <div class="grid">
+          <div class="tile"><b>Road Signs</b>Simple guides for the signs you’ll see on Jamaican roads.</div>
+          <div class="tile"><b>Practice Quizzes</b>Quick quizzes that feel like the real thing.</div>
+          <div class="tile"><b>Smart Tips</b>Short explanations so things stick, not just memorize.</div>
+        </div>
+
+        <p class="footer">© <span id="y"></span> DrivingInJA • Built by Shavell</p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
