@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DrivingInJA — Road Signs</title>
+  <style>
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b1020; color:#fff; }
+    a { color: inherit; }
+    .wrap { padding:24px; }
+    .container { max-width: 980px; margin: 0 auto; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .logo { font-weight:800; }
+    .links { display:flex; gap:12px; flex-wrap:wrap; }
+    .link { text-decoration:none; padding:10px 12px; border-radius: 12px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+    .link:hover { background: rgba(255,255,255,0.14); }
+    .card { margin-top:18px; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14); border-radius: 22px;
+      padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 34px; }
+    p { margin: 0 0 16px; color: rgba(255,255,255,0.82); line-height:1.6; }
+    ul { margin: 0; padding-left: 18px; color: rgba(255,255,255,0.82); line-height:1.8; }
+    .note { margin-top: 14px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+    .controls { display:flex; gap:12px; flex-wrap:wrap; margin: 14px 0 10px; }
+.search { flex: 1; min-width: 240px; padding: 12px 14px; border-radius: 14px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color:#fff; outline:none; }
+.search::placeholder { color: rgba(255,255,255,0.55); }
+.filters { display:flex; gap:10px; flex-wrap:wrap; }
+.chip { cursor:pointer; padding: 10px 12px; border-radius: 999px; color:#fff;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+.chip.active { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.22); }
+
+.grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+.sign { padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10); display:flex; flex-direction:column; gap:8px; }
+.sign b { font-size: 15px; }
+.sign span { color: rgba(255,255,255,0.82); line-height:1.5; }
+.sign em { font-style: normal; font-size: 12px; opacity: .75; }
+.footer-note { margin-top: 14px; color: rgba(255,255,255,0.65); font-size: 13px; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="container">
+      <header class="nav">
+        <div class="logo"><a href="index.html" style="text-decoration:none;">DrivingInJA 🇯🇲</a></div>
+        <nav class="links">
+          <a class="link" href="road-signs.html">Road Signs</a>
+          <a class="link" href="quizzes.html">Quizzes</a>
+          <a class="link" href="about.html">About</a>
+        </nav>
+      </header>
+
+      <section class="card">
+  <h1>Road Signs</h1>
+  <p>Browse signs by category. We’ll add images next.</p>
+
+  <div class="controls">
+    <input id="search" class="search" type="text" placeholder="Search signs (e.g., stop, speed, pedestrian)..." />
+    <div class="filters">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="warning">Warning</button>
+      <button class="chip" data-filter="regulatory">Regulatory</button>
+      <button class="chip" data-filter="info">Information</button>
+    </div>
+  </div>
+
+  <div id="grid" class="grid">
+    <!-- WARNING -->
+    <div class="sign" data-type="warning" data-name="pedestrian crossing">
+      <b>Pedestrian Crossing</b>
+      <span>Slow down and watch for pedestrians crossing the road.</span>
+      <em>Warning</em>
+    </div>
+
+    <div class="sign" data-type="warning" data-name="sharp bend">
+      <b>Sharp Bend</b>
+      <span>Reduce speed. A sharp curve is ahead.</span>
+      <em>Warning</em>
+    </div>
+
+    <div class="sign" data-type="warning" data-name="children">
+      <b>Children</b>
+      <span>Watch for children crossing, especially near schools.</span>
+      <em>Warning</em>
+    </div>
+
+    <!-- REGULATORY -->
+    <div class="sign" data-type="regulatory" data-name="stop">
+      <b>Stop</b>
+      <span>Come to a complete stop and proceed only when safe.</span>
+      <em>Regulatory</em>
+    </div>
+
+    <div class="sign" data-type="regulatory" data-name="give way yield">
+      <b>Give Way (Yield)</b>
+      <span>Slow down and give priority to traffic on the main road.</span>
+      <em>Regulatory</em>
+    </div>
+
+    <div class="sign" data-type="regulatory" data-name="speed limit">
+      <b>Speed Limit</b>
+      <span>Do not exceed the posted maximum speed.</span>
+      <em>Regulatory</em>
+    </div>
+
+    <!-- INFORMATION -->
+    <div class="sign" data-type="info" data-name="hospital">
+      <b>Hospital</b>
+      <span>Hospital facilities are nearby.</span>
+      <em>Information</em>
+    </div>
+
+    <div class="sign" data-type="info" data-name="parking">
+      <b>Parking</b>
+      <span>Parking area available.</span>
+      <em>Information</em>
+    </div>
+
+    <div class="sign" data-type="info" data-name="roundabout">
+      <b>Roundabout</b>
+      <span>Roundabout ahead. Slow down and yield appropriately.</span>
+      <em>Information</em>
+    </div>
+  </div>
+
+  <p class="footer-note">Next: we’ll add sign images and build a real quiz engine.</p>
+</section>
+
+<script>
+  const chips = Array.from(document.querySelectorAll(".chip"));
+  const signs = Array.from(document.querySelectorAll(".sign"));
+  const search = document.getElementById("search");
+
+  let activeFilter = "all";
+
+  function applyFilters() {
+    const q = (search.value || "").toLowerCase().trim();
+
+    signs.forEach((el) => {
+      const type = el.getAttribute("data-type");
+      const name = (el.getAttribute("data-name") || "").toLowerCase();
+
+      const matchesFilter = activeFilter === "all" ? true : type === activeFilter;
+      const matchesSearch = q === "" ? true : name.includes(q);
+
+      el.style.display = (matchesFilter && matchesSearch) ? "" : "none";
+    });
+  }
+
+  chips.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      chips.forEach((c) => c.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = btn.getAttribute("data-filter");
+      applyFilters();
+    });
+  });
+
+  search.addEventListener("input", applyFilters);
+</script>
+
+    </div>
+  </main>
+</body>
+</html>
